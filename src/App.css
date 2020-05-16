@@ -1,4 +1,27 @@
-.container {
+.app {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+}
+
+.input {
+  margin: 5px;
+  padding: 5px;
+  border: solid black 2px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.btn {
+  margin: 5px;
+  padding: 5px 10px;
+  border: solid black 2px;
+  border-radius: 5px;
+}
+
+.list {
+  list-style-type: none;
+}
+
+.list li {
+  margin: 5px;
 }

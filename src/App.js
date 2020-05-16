@@ -1,15 +1,27 @@
-import React from 'react';
-import './App.css';
+import React, {useState} from "react";
+import "./App.css";
 
-class App extends React.Component {
-  render() {
-    return (
-      <div className="container">
-        <h1>React 101</h1>
-        <p>Learning guide</p>
-      </div>
-    )
+// components
+import AddTodo from "./components/AddTodo";
+import TodoList from "./components/TodoList";
+
+const App = () => {
+  const [todos, setTodos] = useState([]);
+
+  const add = todo => {
+    const list = [...todos]
+    list.unshift(todo);
+    
+    setTodos(list);
   }
-}
+
+  return (
+    <div className="app">
+      <h1>Todo App</h1>
+      <AddTodo add={add} />
+      <TodoList todos={todos} />
+    </div>
+  );
+};
 
 export default App;
