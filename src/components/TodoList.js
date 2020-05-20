@@ -1,16 +1,16 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, remove }) => {
   return (
-    <>
+    <div className="list-container">
       <h2>Todos List</h2>
-      <ul className="list">
-        {todos.map((todo) => (
-          <TodoItem todo={todo} />
+      <div className="list">
+        {todos.map((item) => (
+          <TodoItem item={item} remove={remove} />
         ))}
-      </ul>
-    </>
+      </div>
+    </div>
   );
 };
 

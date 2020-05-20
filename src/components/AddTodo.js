@@ -17,7 +17,7 @@ const AddTodo = ({add}) => {
         type="text"
         name="todo"
         value={todo}
-        placeholder="Add Todo"
+        placeholder="Enter Todo"
         onChange={(e) => setTodo(e.target.value)}
       />
       <button className="btn" type="submit">Add</button>
