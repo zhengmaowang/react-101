@@ -8,12 +8,12 @@ import TodoList from "./components/TodoList";
 const App = () => {
   const [todos, setTodos] = useState([]);
 
-  const add = todo => {
-    if (todo) {
+  const add = text => {
+    if (text) {
       const list = [...todos];
       const id = todos.length;
 
-      list.unshift({ id, todo });
+      list.unshift({ id, text });
 
       setTodos(list);
     }
@@ -24,11 +24,24 @@ const App = () => {
     setTodos(updatedList);
   }
 
+  const update = (id, updatedTodo) => {
+    const todoList = []
+    
+    todos.forEach(todo => {
+      if (todo.id === id)
+        todo.text = updatedTodo;
+
+      todoList.push(todo);
+    });
+
+    setTodos(todoList);
+  }
+
   return (
     <div className="app">
       <h1 className="title" >Todo App</h1>
       <AddTodo add={add} />
-      <TodoList todos={todos} remove={remove} />
+      <TodoList todos={todos} remove={remove} update={update} />
     </div>
   );
 };
