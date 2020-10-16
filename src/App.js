@@ -25,13 +25,11 @@ const App = () => {
   }
 
   const update = (id, updatedTodo) => {
-    const todoList = []
-    
-    todos.forEach(todo => {
-      if (todo.id === id)
-        todo.text = updatedTodo;
+    const todoList = todos;
 
-      todoList.push(todo);
+    todoList.forEach(todo => {
+      if(todo.id === id)
+        todo.text = updatedTodo;
     });
 
     setTodos(todoList);

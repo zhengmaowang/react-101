@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+# functions
+/lambda
+
 # production
 /build
 
