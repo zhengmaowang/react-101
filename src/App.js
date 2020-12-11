@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 // components
@@ -8,36 +8,28 @@ import TodoList from "./components/TodoList";
 const App = () => {
   const [todos, setTodos] = useState([]);
 
-  const add = text => {
+  const add = (text) => {
     if (text) {
       const list = [...todos];
-      const id = todos.length;
-
-      list.unshift({ id, text });
-
+      list.unshift(text);
       setTodos(list);
     }
-  }
+  };
 
-  const remove = id => {
-    const updatedList = todos.filter(todo => todo.id !== id );
+  const remove = (removeIndex) => {
+    const updatedList = todos.filter((todo, index) => index !== removeIndex);
     setTodos(updatedList);
-  }
+  };
 
-  const update = (id, updatedTodo) => {
-    const todoList = todos;
-
-    todoList.forEach(todo => {
-      if(todo.id === id)
-        todo.text = updatedTodo;
-    });
-
-    setTodos(todoList);
-  }
+  const update = (updateIndex, updatedTodo) => {
+    const list = [...todos];
+    list[updateIndex] = updatedTodo;
+    setTodos(list);
+  };
 
   return (
     <div className="app">
-      <h1 className="title" >Todo App</h1>
+      <h1 className="title">Todo App</h1>
       <AddTodo add={add} />
       <TodoList todos={todos} remove={remove} update={update} />
     </div>

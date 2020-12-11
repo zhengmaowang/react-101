@@ -6,7 +6,6 @@ const AddTodo = ({add}) => {
   const addEvent = e => {
     e.preventDefault();
     add(todo);
-
     setTodo("");
   }
 

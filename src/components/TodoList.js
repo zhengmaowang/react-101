@@ -6,8 +6,13 @@ const TodoList = ({ todos, remove, update }) => {
     <div className="list-container">
       <h2>Todos List</h2>
       <div className="list">
-        {todos.map((item) => (
-          <TodoItem key={item.id} item={item} remove={remove} update={update} />
+        {todos.map((todo, index) => (
+          <TodoItem
+            key={index}
+            item={{ todo, index }}
+            remove={remove}
+            update={update}
+          />
         ))}
       </div>
     </div>
