@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from 'react'
 import "./App.css";
 
 // components
@@ -8,22 +8,32 @@ import TodoList from "./components/TodoList";
 const App = () => {
   const [todos, setTodos] = useState([]);
 
+  // create todo
   const add = (text) => {
     if (text) {
+      const todo = { id: Math.random().toString(), text }
       const list = [...todos];
-      list.unshift(text);
+
+      list.unshift(todo);
       setTodos(list);
     }
   };
 
-  const remove = (removeIndex) => {
-    const updatedList = todos.filter((todo, index) => index !== removeIndex);
+  // delete todo
+  const remove = (removeId) => {
+    const updatedList = todos.filter((todo) => todo.id !== removeId);
     setTodos(updatedList);
   };
 
-  const update = (updateIndex, updatedTodo) => {
+  // update todo
+  const update = (updateId, updatedText) => {
     const list = [...todos];
-    list[updateIndex] = updatedTodo;
+
+    list.forEach(todo => {
+      if (todo.id === updateId)
+        todo.text = updatedText
+    })
+
     setTodos(list);
   };
 

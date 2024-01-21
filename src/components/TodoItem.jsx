@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-const TodoItem = ({ item, remove, update }) => {
+const TodoItem = ({ todo, remove, update }) => {
   const [edit, setEdit] = useState(false);
-  const [updatedTodo, setUpdatedTodo] = useState(item.todo);
+  const [updatedTodo, setUpdatedTodo] = useState(todo.text);
 
   return (
     <li className="li">
-      <button className="btn btn-remove" onClick={() => remove(item.index)}>
+      <button className="btn btn-remove" onClick={() => remove(todo.id)}>
         <b>X</b>
       </button>
       {edit ? (
@@ -20,7 +20,7 @@ const TodoItem = ({ item, remove, update }) => {
           <button
             className="btn"
             onClick={() => {
-              update(item.index, updatedTodo);
+              update(todo.id, updatedTodo);
               setEdit(false);
             }}
           >
@@ -29,7 +29,7 @@ const TodoItem = ({ item, remove, update }) => {
         </>
       ) : (
         <span className="todo-text" onClick={() => setEdit(true)}>
-          {item.todo}
+          {todo.text}
         </span>
       )}
     </li>

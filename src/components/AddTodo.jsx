@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-const AddTodo = ({add}) => {
+const AddTodo = (props) => {
   const [todo, setTodo] = useState("");
 
   const addEvent = e => {
     e.preventDefault();
-    add(todo);
+    props.add(todo);
     setTodo("");
   }
 
